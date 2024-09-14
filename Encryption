@@ -1,0 +1,62 @@
+An English text needs to be encrypted using the following encryption scheme.
+First, the spaces are removed from the text. Let  be the length of this text.
+Then, characters are written into a grid, whose rows and columns have the following constraints:
+rows=floor(sqrt(length))
+columns=ceil(sqrt(length))
+
+string encryption(string s) 
+{
+    int n=s.length();
+    int count=n;
+    for(int i=0;i<n;i++)
+    {
+        if(s[i]==' ')
+        {
+            s.erase(i,1);
+            count--;
+        }
+    }
+    int low=floor(sqrt(count));
+    int high=ceil(sqrt(count));
+    if(low*high<count)
+    {
+        low++;
+    }
+    char arr[low][high];
+    int a=0;
+    for(int i=0;i<low;i++)
+    {
+        for(int j=0;j<high;j++)
+        {
+            arr[i][j]=s[a];
+            a++;
+        }
+    }
+    
+    string res[high];
+    for(int i=0;i<low;i++)
+    {
+        int a=0;
+        for(int j=0;j<high;j++)
+        {
+            if(j==a)
+            {
+                if(arr[i][j])
+                {
+                    res[a]=res[a]+arr[i][j];
+                    a++;
+                }
+                else
+                continue;
+            }
+        }
+    }
+    string result;
+    for(int i=0;i<high;i++)
+    {
+        result=result+res[i]+' ';
+    }
+    int m=result.length();
+    result.erase(m-1,1);
+    return result;
+}
