@@ -1,0 +1,29 @@
+Given an array of integers, calculate the ratios of its elements that are positive, 
+negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
+
+void plusMinus(vector<int> arr) {
+    float c1=0;
+    float c2=0;
+    float c3=0;
+    for(int i=0;i<arr.size();i++)
+    {
+        if(arr[i]==0)
+        {
+            c3++;
+        }
+        else if(arr[i]<0)
+        {
+            c2++;
+        }
+        else
+        {
+            c1++;
+        }
+    }
+    float r1=c1/arr.size();
+    float r2=c2/arr.size();
+    float r3=c3/arr.size();
+    cout<<fixed<<setprecision(6)<<r1<<"\n";
+    cout<<fixed<<setprecision(6)<<r2<<"\n";
+    cout<<fixed<<setprecision(6)<<r3<<"\n";
+}
