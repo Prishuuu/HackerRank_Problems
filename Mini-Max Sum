@@ -1,0 +1,26 @@
+Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. 
+Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+void miniMaxSum(vector<int> arr) 
+{
+    int n=arr.size();
+    long mins,maxs,sum=0; 
+    for(int i=0;i<arr.size();i++)
+    {
+        sum+=arr[i];
+    }
+    int i, j; 
+    for (i = 0; i < n - 1; i++) 
+        {
+        for (j = 0; j < n - i - 1; j++) 
+            {
+            if (arr[j] > arr[j + 1])
+                { 
+                swap(arr[j], arr[j + 1]);
+                }
+            }
+        } 
+    maxs=sum-arr[0];
+    mins=sum-arr[4];
+    cout<<mins<<" "<<maxs;
+}
