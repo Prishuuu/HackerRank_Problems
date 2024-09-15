@@ -1,0 +1,36 @@
+Given two arrays of integers, find which elements in the second array are missing from the first array.
+
+vector<int> missingNumbers(vector<int> arr, vector<int> brr) 
+{
+    vector<int> missingElements;
+
+    sort(arr.begin(), arr.end());
+    sort(brr.begin(), brr.end());
+
+    int arrSize = arr.size();
+    int brrSize = brr.size();
+
+    for (int i = 0; i < brrSize; ) 
+    {
+        int currentElement = brr[i];
+        int brrCount = 0;
+
+        while (i < brrSize && brr[i] == currentElement) {
+            ++brrCount;
+            ++i;
+        }
+
+        int arrCount = 0;
+        for (int j = 0; j < arrSize && arr[j] <= currentElement; ++j) {
+            if (arr[j] == currentElement) {
+                ++arrCount;
+            }
+        }
+        if (brrCount > arrCount) {
+            missingElements.push_back(currentElement);
+        }
+    }
+    sort(missingElements.begin(), missingElements.end());
+
+    return missingElements;
+}
