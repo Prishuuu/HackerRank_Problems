@@ -1,0 +1,16 @@
+Little Bobby loves chocolate. He frequently goes to his favorite 5&10 store, Penny Auntie, to buy them. 
+They are having a promotion at Penny Auntie. If Bobby saves enough wrappers, he can turn them in for a free chocolate.
+
+int chocolateFeast(int n, int c, int m) {
+    int result = 0, wrappers = 0;
+    while( n >= c){
+        result ++;
+        wrappers ++;
+        n -= c;
+        if(wrappers == m){
+            result ++;
+            wrappers = 1;
+        }
+    }
+    return result;
+}
