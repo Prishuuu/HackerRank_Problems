@@ -1,0 +1,15 @@
+int divisibleSumPairs(int n, int k, vector<int> ar) {
+    int p=1,count=0;
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=p;j<n;j++)
+        {
+            if((ar[i]+ar[j])%k==0)
+            {
+                count++;
+            }
+        }
+        p++;
+    }
+    return count;
+}
