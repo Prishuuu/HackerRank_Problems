@@ -1,0 +1,14 @@
+In this challenge, you will determine whether a string is funny or not.
+To determine whether a string is funny, create a copy of the string in reverse e.g. abc->cba. 
+Iterating through each string, compare the absolute difference in the ascii values of the characters at positions 0 and 1, 1 and 2 and so on to the end. 
+If the list of absolute differences is the same for both strings, they are funny.
+
+string funnyString(string s) {
+    string r = s;
+    reverse(r.begin(), r.end());
+    for(int i = 1; i < s.size(); i++){
+        if(abs(s[i]-s[i-1]) != abs(r[i]- r[i-1])) 
+        return "Not Funny";
+    }
+    return "Funny";
+}
