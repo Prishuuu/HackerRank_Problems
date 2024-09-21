@@ -1,0 +1,10 @@
+Given an array of integers, determine the minimum number of elements to delete to leave only elements of equal value.
+
+int equalizeArray(vector<int> arr) {int max_e = *max_element(arr.begin(), arr.end());
+    vector<int> freq(max_e + 1, 0);
+    for (int el : arr) {
+        freq[el]++;
+    }
+    int mx = *max_element(freq.begin(), freq.end());
+    return arr.size() - mx;
+}
