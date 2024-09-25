@@ -1,0 +1,21 @@
+vector<int> climbingLeaderboard(vector<int> ranked, vector<int> player) {
+    vector<int> result;
+    vector<int> distinctRanks;
+    
+    distinctRanks.push_back(ranked[0]);
+    for (int i = 1; i < ranked.size(); ++i) {
+        if (ranked[i] != ranked[i - 1]) {
+            distinctRanks.push_back(ranked[i]);
+        }
+    }
+    
+    int rankIndex = distinctRanks.size() - 1;
+    for (int i = 0; i < player.size(); ++i) {
+        while (rankIndex >= 0 && player[i] >= distinctRanks[rankIndex]) {
+            rankIndex--;
+        }
+        result.push_back(rankIndex + 2);
+    }
+    
+    return result;
+}
