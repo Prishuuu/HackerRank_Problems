@@ -1,0 +1,12 @@
+vector<int> circularArrayRotation(vector<int> a, int k, vector<int> queries) {
+    int n = a.size();
+    k = k % n;
+    vector<int> result;
+    
+    for (int i = 0; i < queries.size(); ++i) {
+        int index = (queries[i] - k + n) % n;
+        result.push_back(a[index]);
+    }
+    
+    return result;
+}
