@@ -1,0 +1,12 @@
+int jumpingOnClouds(vector<int> c, int k) {
+    int n = c.size();
+    int energy = 100;
+    int i = 0;
+
+    do {
+        i = (i + k) % n;
+        energy -= 1 + 2 * c[i];
+    } while (i != 0);
+
+    return energy;
+}
