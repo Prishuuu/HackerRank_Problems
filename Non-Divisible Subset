@@ -1,0 +1,23 @@
+int nonDivisibleSubset(int k, vector<int> s) {
+    int r[100] = {0};
+    int maxSize = 0;
+    
+    for (int i = 0; i < s.size(); i++) {
+        int rem = s[i] % k;
+        r[rem]++;
+    }
+
+    if (r[0] > 0) {
+        maxSize = 1;
+    }
+
+    for (int i = 1; i <= k / 2; i++) {
+        if (i != k - i) {
+            maxSize += max(r[i], r[k - i]);
+        } else {
+            maxSize += 1;
+        }
+    }
+
+    return maxSize;
+}
