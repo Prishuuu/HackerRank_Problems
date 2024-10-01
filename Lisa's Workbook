@@ -1,0 +1,20 @@
+int workbook(int n, int k, vector<int> arr) {
+    int specialProblems = 0;
+    int pageNumber = 1;
+
+    for (int i = 0; i < n; i++) {
+        int problems = arr[i];
+        int totalPages = (problems + k - 1) / k;
+
+        for (int j = 0; j < totalPages; j++) {
+            int startProblem = j * k + 1;
+            int endProblem = min(startProblem + k - 1, problems);
+            if (startProblem <= pageNumber && pageNumber <= endProblem) {
+                specialProblems++;
+            }
+            pageNumber++;
+        }
+    }
+    
+    return specialProblems;
+}
