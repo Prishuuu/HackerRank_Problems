@@ -1,0 +1,10 @@
+vector<int> stones(int n, int a, int b) {
+    set<int> result;
+
+    for (int i = 0; i < n; i++) {
+        int last_stone = i * b + (n - 1 - i) * a;
+        result.insert(last_stone);
+    }
+
+    return vector<int>(result.begin(), result.end());
+}
