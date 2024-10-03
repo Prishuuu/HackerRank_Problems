@@ -1,0 +1,11 @@
+int flatlandSpaceStations(int n, vector<int> c) {
+    sort(c.begin(), c.end());
+    int max_dist = max(c[0], n - 1 - c.back());
+    
+    for (int i = 1; i < c.size(); i++) {
+        int dist = (c[i] - c[i - 1]) / 2;
+        max_dist = max(max_dist, dist);
+    }
+    
+    return max_dist;
+}
