@@ -1,0 +1,5 @@
+long taumBday(int b, int w, int bc, int wc, int z) {
+    long blackCost = min(bc, wc + z);
+    long whiteCost = min(wc, bc + z);
+    return blackCost*b + whiteCost*w;
+}
