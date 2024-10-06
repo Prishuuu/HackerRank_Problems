@@ -1,0 +1,21 @@
+void separateNumbers(string s) {
+    int n = s.length();
+    for (int length = 1; length <= n / 2; ++length) {
+        string firstNumStr = s.substr(0, length);
+        long long firstNum = stoll(firstNumStr);
+
+        string expectedSequence = firstNumStr;
+        long long nextNum = firstNum + 1;
+        
+        while (expectedSequence.length() < s.length()) {
+            expectedSequence += to_string(nextNum);
+            ++nextNum;
+        }
+
+        if (expectedSequence == s) {
+            cout << "YES " << firstNum << endl;
+            return;
+        }
+    }
+    cout << "NO" << endl;
+}
