@@ -1,0 +1,15 @@
+string pangrams(string s) {
+    unordered_set<char> letters;
+    
+    for (char c : s) {
+        if (isalpha(c)) {
+            letters.insert(tolower(c));
+        }
+    }
+    
+    if (letters.size() == 26) {
+        return "pangram";
+    } else {
+        return "not pangram";
+    }
+}
