@@ -1,0 +1,15 @@
+string hackerrankInString(string s) {
+    string target = "hackerrank";
+    size_t j = 0;
+    
+    for (size_t i = 0; i < s.length(); ++i) {
+        if (s[i] == target[j]) {
+            j++;
+        }
+        if (j == target.size()) {
+            return "YES";
+        }
+    }
+    
+    return "NO";
+}
