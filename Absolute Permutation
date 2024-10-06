@@ -1,0 +1,19 @@
+vector<int> absolutePermutation(int n, int k) {
+    vector<int> result(n);
+    if (k == 0) {
+        for (int i = 1; i <= n; ++i) result[i-1] = i;
+        return result;
+    }
+    
+    if ((n % (2 * k)) != 0) return {-1};
+    
+    for (int i = 1; i <= n; ++i) {
+        if (((i-1) / k) % 2 == 0) {
+            result[i-1] = i + k;
+        } else {
+            result[i-1] = i - k;
+        }
+    }
+    
+    return result;
+}
