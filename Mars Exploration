@@ -1,0 +1,12 @@
+int marsExploration(string s) {
+    int altered = 0;
+    string sos = "SOS";
+
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] != sos[i % 3]) {
+            ++altered;
+        }
+    }
+
+    return altered;
+}
