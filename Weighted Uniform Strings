@@ -1,0 +1,29 @@
+vector<string> weightedUniformStrings(string s, vector<int> queries) {
+    unordered_set<int> uniformWeights;
+    int currentWeight = 0;
+    char prevChar = '\0';
+    
+    for (char c : s) {
+        int charWeight = c - 'a' + 1;
+        
+        if (c == prevChar) {
+            currentWeight += charWeight;
+        } else {
+            currentWeight = charWeight;
+            prevChar = c;
+        }
+        
+        uniformWeights.insert(currentWeight);
+    }
+    
+    vector<string> result;
+    for (int query : queries) {
+        if (uniformWeights.find(query) != uniformWeights.end()) {
+            result.push_back("Yes");
+        } else {
+            result.push_back("No");
+        }
+    }
+    
+    return result;
+}
