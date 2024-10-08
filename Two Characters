@@ -1,0 +1,35 @@
+int alternate(string s) {
+    unordered_set<char> unique_chars(s.begin(), s.end());
+    int max_length = 0;
+
+    vector<char> chars(unique_chars.begin(), unique_chars.end());
+    int n = chars.size();
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            char first = chars[i];
+            char second = chars[j];
+            string filtered;
+
+            for (char c : s) {
+                if (c == first || c == second) {
+                    filtered += c;
+                }
+            }
+
+            bool valid = true;
+            for (size_t k = 1; k < filtered.length(); ++k) {
+                if (filtered[k] == filtered[k - 1]) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid) {
+                max_length = max(max_length, static_cast<int>(filtered.length()));
+            }
+        }
+    }
+
+    return max_length;
+}
