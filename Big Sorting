@@ -1,0 +1,11 @@
+bool compareStrings(const string &a, const string &b) {
+    if (a.size() == b.size()) {
+        return a < b;  
+        }
+    return a.size() < b.size();
+}
+
+vector<string> bigSorting(vector<string> unsorted) {
+    sort(unsorted.begin(), unsorted.end(), compareStrings);
+    return unsorted;
+}
