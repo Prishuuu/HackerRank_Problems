@@ -1,0 +1,27 @@
+int palindromeIndex(string s) {
+    int l = 0, r = s.length() - 1;
+    
+    while (l < r) {
+        if (s[l] != s[r]) {
+            int l_temp = l + 1, r_temp = r;
+            while (l_temp < r_temp && s[l_temp] == s[r_temp]) {
+                l_temp++;
+                r_temp--;
+            }
+            if (l_temp >= r_temp) return l;
+
+            l_temp = l, r_temp = r - 1;
+            while (l_temp < r_temp && s[l_temp] == s[r_temp]) {
+                l_temp++;
+                r_temp--;
+            }
+            if (l_temp >= r_temp) return r;
+
+            return -1;
+        }
+        l++;
+        r--;
+    }
+    
+    return -1;
+}
