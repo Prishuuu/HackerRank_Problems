@@ -1,0 +1,23 @@
+vector<int> largestPermutation(int k, vector<int> arr) {
+    int n = arr.size();
+    unordered_map<int, int> pos;
+    
+    for (int i = 0; i < n; i++) {
+        pos[arr[i]] = i;
+    }
+    
+    for (int i = 0; i < n && k > 0; i++) {
+        int maxVal = n - i;
+        
+        if (arr[i] != maxVal) {
+            int maxPos = pos[maxVal];
+            pos[arr[i]] = maxPos;
+            pos[maxVal] = i;
+            
+            swap(arr[i], arr[maxPos]);
+            k--;
+        }
+    }
+    
+    return arr;
+}
