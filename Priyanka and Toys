@@ -1,0 +1,12 @@
+int toys(vector<int> w) 
+{
+    sort(w.begin(), w.end());
+    int containers = 0, i = 0, n = w.size();
+    while (i < n) 
+    {
+        int limit = w[i] + 4;
+        while (i < n && w[i] <= limit) i++;
+        containers++;
+    }
+    return containers;
+}
