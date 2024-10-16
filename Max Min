@@ -1,0 +1,11 @@
+int maxMin(int k, vector<int> arr) {
+    sort(arr.begin(), arr.end());
+    int minUnfairness = INT_MAX;
+
+    for (int i = 0; i <= arr.size() - k; ++i) {
+        int unfairness = arr[i + k - 1] - arr[i];
+        minUnfairness = min(minUnfairness, unfairness);
+    }
+
+    return minUnfairness;
+}
