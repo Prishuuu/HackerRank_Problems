@@ -1,0 +1,25 @@
+void decentNumber(int n) {
+    if (n < 3) {
+        cout << -1 << endl;
+        return;
+    }
+
+    int fives = n; 
+    while (fives % 3 != 0) {
+        fives -= 5;
+    }
+
+    if (fives < 0) {
+        cout << -1 << endl;
+        return;
+    }
+
+    int threes = n - fives;
+    for (int i = 0; i < fives; ++i) {
+        cout << '5';
+    }
+    for (int i = 0; i < threes; ++i) {
+        cout << '3';
+    }
+    cout << endl;
+}
