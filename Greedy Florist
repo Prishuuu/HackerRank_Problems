@@ -1,0 +1,12 @@
+int getMinimumCost(int k, vector<int> c) {
+    sort(c.rbegin(), c.rend());
+    int totalCost = 0;
+    int currentFriend = 0;
+
+    for (int i = 0; i < c.size(); ++i) {
+        totalCost += (currentFriend / k + 1) * c[i];
+        currentFriend++;
+    }
+
+    return totalCost;
+}
