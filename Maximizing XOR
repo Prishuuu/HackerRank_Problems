@@ -1,0 +1,14 @@
+int maximizingXor(int l, int r) {
+    int maxi=l^l;
+    for(int i=l;i<=r;i++)
+    {
+        for(int j=l;j<=r;j++)
+        {
+            if((i^j)>maxi)
+            {
+                maxi=i^j;
+            }
+        }
+    }
+    return maxi;
+}
