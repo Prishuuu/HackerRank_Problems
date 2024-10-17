@@ -1,0 +1,17 @@
+vector<int> jimOrders(vector<vector<int>> orders) {
+    vector<pair<int, int>> serveTimes;
+    
+    for (int i = 0; i < orders.size(); i++) {
+        int serveTime = orders[i][0] + orders[i][1];
+        serveTimes.push_back(make_pair(serveTime, i + 1));  
+    }
+
+    sort(serveTimes.begin(), serveTimes.end());
+
+    vector<int> result;
+    for (auto &pair : serveTimes) {
+        result.push_back(pair.second);  
+    }
+
+    return result;
+}
