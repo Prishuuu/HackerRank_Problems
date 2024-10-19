@@ -1,0 +1,20 @@
+int luckBalance(int k, vector<vector<int>> contests) {
+    int totalLuck = 0;
+    vector<int> importantContests;
+
+    for (auto contest : contests) {
+        if (contest[1] == 1) {
+            importantContests.push_back(contest[0]);
+        }
+        totalLuck += contest[0];
+    }
+
+    sort(importantContests.begin(), importantContests.end());
+
+    int importantSize = importantContests.size();
+    for (int i = 0; i < importantSize - min(k, importantSize); ++i) {
+        totalLuck -= 2 * importantContests[i];
+    }
+
+    return totalLuck;
+}
