@@ -1,0 +1,7 @@
+string pokerNim(int k, vector<int> c) {
+    int xor_sum = 0;
+    for(int chips : c) {
+        xor_sum ^= chips;
+    }
+    return xor_sum == 0 ? "Second" : "First";
+}
