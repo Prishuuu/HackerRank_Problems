@@ -1,0 +1,7 @@
+string nimGame(vector<int> pile) {
+    int xor_sum = 0;
+    for (int p : pile) {
+        xor_sum ^= p;
+    }
+    return xor_sum ? "First" : "Second";
+}
