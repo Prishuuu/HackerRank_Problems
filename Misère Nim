@@ -1,0 +1,13 @@
+string misereNim(vector<int> s) {
+    int xor_sum = 0, ones_count = 0;
+    for (int stones : s) {
+        xor_sum ^= stones;
+        if (stones == 1) ++ones_count;
+    }
+    
+    if (ones_count == s.size()) {
+        return (ones_count % 2 == 0) ? "First" : "Second";
+    } else {
+        return xor_sum ? "First" : "Second";
+    }
+}
